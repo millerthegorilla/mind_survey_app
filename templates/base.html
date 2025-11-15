@@ -115,12 +115,12 @@
 	    {% if request.user.is_authenticated %}
 	       {% if request.user.is_staff %}
                   <li class="nav-item">
-                    <a class="nav-link link-light" href="/surveys/dashboard/">{% translate "Admin" %}</a>
+                    <a class="nav-link link-light" href="{% url 'djf_surveys:admin_survey_list' %}">{% translate "Admin" %}</a>
 		  </li>
 	       {% endif %}
 	       {% if request.user.is_superuser %}
 	          <li class="nav-item">
-	            <a class="nav-link link-light" href="/django_survey_admin/">{% translate "SuperUser" %}</a>
+	            <a class="nav-link link-light" href="{% url 'admin:index' %}">{% translate "SuperUser" %}</a>
                   </li>
 	       {% endif %}
 	    {% endif %}
