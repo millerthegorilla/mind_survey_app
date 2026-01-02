@@ -1,0 +1,99 @@
+{% load static i18n %}
+{% block main %}
+{% block content %}
+<div class="flex basis-full bg-blue-800 shadow-sm">
+  <div class="navbar-start lg:hidden">
+    <div class="dropdown">
+      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+      </div>
+      <ul
+        tabindex="-1"
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        <li>
+            <a class="" href="{% url 'djf_surveys:index' %}">Home</a>
+        </li>
+        <li>
+            <a class="" href="{% url 'about' %}">About</a>
+        </li>
+        {% if request.user.is_authenticated %}
+            <li class="">
+                <a class=""
+                   href="{% url 'users:detail' request.user.username %}">{% translate "My Profile" %}</a>
+            </li>
+            <li class="">
+                {# URL provided by django-allauth/account/urls.py #}
+                <a class="" href="{% url 'account_logout' %}">{% translate "Sign Out" %}</a>
+              </li>
+            {% else %}
+              {% if ACCOUNT_ALLOW_REGISTRATION %}
+                <li class="">
+                  {# URL provided by django-allauth/account/urls.py #}
+                  <a id="sign-up-link" class="" href="{% url 'account_signup' %}">{% translate "Sign Up" %}</a>
+                </li>
+              {% endif %}
+              <li class="">
+                {# URL provided by django-allauth/account/urls.py #}
+                <a id="log-in-link" class="" href="{% url 'account_login' %}">{% translate "Sign In" %}</a>
+              </li>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+              {% if request.user.is_staff %}
+                  <li class="">
+                    <a class="" href="{% url 'djf_surveys:admin_survey_list' %}">{% translate "Surveys" %}</a>
+                  </li>
+                  <li class="">
+                    <a class="" href="{% url 'djf_surveys:admin_survey_selection_list' %}">{% translate "Survey Selections" %}</a>
+                  </li>
+              {% endif %}
+              {% if request.user.is_superuser %}
+                  <li class="">
+                    <a class="" href="{% url 'admin:index' %}">{% translate "SuperUser" %}</a>
+                  </li>
+              {% endif %}
+            {% else %}
+              <li class="">
+                <a class="" href="{% url 'djf_surveys:index' %}">{% translate "Surveys..." %}</a>
+              </li>
+            {% endif %}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="px-10 navbar hidden lg:flex">
+    <div class="navbar-start">
+        <a class="btn border-none shadow-none bg-blue-800 pr-4 text-white hover:bg-white hover:text-blue-800" href="{% url 'djf_surveys:index' %}">Home</a>
+        <a class="btn border-none shadow-none bg-blue-800 pr-4 text-white hover:bg-white hover:text-blue-800" href="{% url 'about' %}">About</a>
+    </div>
+    <div class="navbar-center">
+            {% if request.user.is_authenticated %}
+              {% if request.user.is_staff %}
+                    <a class="btn border-none shadow-none bg-blue-800 pr-4 text-white hover:bg-white hover:text-blue-800" href="{% url 'djf_surveys:admin_survey_list' %}">{% translate "Surveys" %}</a>
+                    <a class="btn border-none shadow-none bg-blue-800 pr-4 text-white hover:bg-white hover:text-blue-800" href="{% url 'djf_surveys:admin_survey_selection_list' %}">{% translate "Survey Selections" %}</a>
+              {% endif %}
+            {% else %}
+                <a class="btn border-none shadow-none bg-blue-800 pr-4 text-white hover:bg-white hover:text-blue-800" href="{% url 'djf_surveys:index' %}">{% translate "Surveys..." %}</a>
+            {% endif %}
+    </div>
+    <div class="navbar-end">
+        {% if request.user.is_superuser %}
+            <a class="btn border-none shadow-none bg-blue-800 pr-4 text-white hover:bg-white hover:text-blue-800" href="{% url 'admin:index' %}">{% translate "SuperUser" %}</a>
+        {% endif %}
+        {% if request.user.is_authenticated %}
+                <a class="btn border-none shadow-none bg-blue-800 pr-4 text-white hover:bg-white hover:text-blue-800"
+                   href="{% url 'users:detail' request.user.username %}">{% translate "My Profile" %}</a>
+                {# URL provided by django-allauth/account/urls.py #}
+                <a class="btn border-none shadow-none bg-blue-800 pr-4 text-white hover:bg-white hover:text-blue-800" href="{% url 'account_logout' %}">{% translate "Sign Out" %}</a>
+            {% else %}
+              {% if ACCOUNT_ALLOW_REGISTRATION %}
+                  {# URL provided by django-allauth/account/urls.py #}
+                  <a id="sign-up-link" class="btn border-none shadow-none bg-blue-800 pr-4 text-white hover:bg-white hover:text-blue-800" href="{% url 'account_signup' %}">{% translate "Sign Up" %}</a>
+              {% endif %}
+                {# URL provided by django-allauth/account/urls.py #}
+                <a id="log-in-link" class="btn border-none shadow-none bg-blue-800 pr-4 text-white hover:bg-white hover:text-blue-800" href="{% url 'account_login' %}">{% translate "Sign In" %}</a>
+            {% endif %}
+            </div>
+  </div>
+</div>
+{% endblock content %}
+{% endblock main %}

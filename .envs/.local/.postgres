@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=mind_survey_app
+POSTGRES_USER=wqoGXUCluleOdofMtqAuMJrioFnPrudM
+POSTGRES_PASSWORD=eBqBxkyMpbHWMX3FlbimSsLdiTnHFWY01gziTOU6afRirO98bRq91DZbdLmJeMEn

@@ -1,0 +1,84 @@
+
+{% load static tailwind_tags i18n %}<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>
+      {% block title %}
+      Mind Survey App
+    {% endblock title %}
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+        content="A survey app for Mind Jersey" />
+  <meta name="author"
+        content="James Miller" />
+  <link rel="icon" type="image/x-icon" href="{% static 'fav-icon.webp' %}"/>
+  {% block extra_css %}
+  {% endblock extra_css %}
+  {% block css %}
+  <!-- Latest compiled and minified Bootstrap CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+  rel="stylesheet" />
+  <link href="{% static 'mind_survey_app/css/project.css' %}" rel="stylesheet" />
+  {% tailwind_css %}
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- Your stuff: Third-party CSS libraries go here -->
+  <!-- This file stores project-specific CSS -->
+  {% endblock css %}
+<!-- Le javascript
+    ================================================== -->
+{# Placed at the top of the document so pages load faster with defer #}
+{% block javascript %}
+<!-- Bootstrap JS -->
+<!-- Your stuff: Third-party javascript libraries go here -->
+<!-- place project specific Javascript in this file -->  
+  <script defer src="{% static 'mind_survey_app/js/project.js' %}"></script>
+
+{% endblock javascript %}
+</head>
+<body class="{% block bodyclass %}{% endblock bodyclass %}">
+  {% block body %}
+  <div class="content">
+    {% if fullscreen != True %}
+    <div class="header">
+      <div class="">
+        <div class="columns-1">
+        <!-- align items to the left side -->
+        <div class="flex justify-between items-center">
+          <img src="{% static 'mind_survey_app/images/logo.png' %}"
+                alt="Mind Jersey Surveys"
+                class="h-25 p-4" />
+          <h3 class="text-2xl text-blue-700 pr-4 font-bold roboto-mono-navbar">Mind Jersey Surveys</h3>
+        </div>
+      </div>
+      <div class="flex">
+      {% include "components/navbar.html" %}
+      </div>
+    </div> <!-- end header -->
+    {% endif %}
+    {% if messages %}
+      {% for message in messages %}
+      <!-- animation of toast fadeout is handled in project.css -->
+      <div class="toast toast-top transition-opacity transition-[0] delay-1000 duration-300 ease-in-out">
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+          {{ message }}
+        </div>
+    </div>
+      {% endfor %}
+    {% endif %}
+  <div class="container mx-auto">
+    {% block main %}
+      {% block content %}
+      {% endblock content %}
+    {% endblock main %}
+  </div>
+</div>
+  {% block extra_js %}
+  {% endblock extra_js %}
+  {% endblock body %}
+</body>
+</html>
