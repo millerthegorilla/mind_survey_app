@@ -12,13 +12,9 @@
 {% block content %}
   <div class="container">
     <div class="row">
-      <div class="col-sm-12">
-        <h2>
-        
-        
-          {{ object.username }}
-        
-      </h2>
+      <div class="sm-cols-12 text-2xl py-10">
+        Hi {{ object.username }}!
+      </h1>
       {% if object.name %}
         <p>{{ object.name }}</p>
       {% endif %}
@@ -35,6 +31,7 @@
         <a class="btn btn-primary"
            href="{% url 'mfa_index' %}"
            role="button">MFA</a>
+        <a class="btn btn-primary pl-2" href="/accounts/password/change/" role="button">Change Password</a>
         <!-- Your Stuff: Custom user template urls -->
       </div>
     </div>
