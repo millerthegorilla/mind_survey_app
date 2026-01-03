@@ -149,10 +149,6 @@ dev = [
     "sphinx-autobuild==2025.8.25",
     "watchfiles==1.1.1",
     "werkzeug[watchdog]==3.1.4",
-    # djf_surveys
-    "django-form-surveys @git+https://github.com/millerthegorilla/django-form-surveys@new_changes",
-    # tailwind
-    "django-tailwind[cookiecutter]",
 ]
 
 [project]
@@ -189,4 +185,6 @@ dependencies = [
     "uvicorn-worker==0.4.0",
     "uvicorn[standard]==0.40.0",
     "whitenoise==6.11.0",
+    # djf_surveys
+    "django-form-surveys @git+https://github.com/millerthegorilla/django-form-surveys@new_changes",
 ]

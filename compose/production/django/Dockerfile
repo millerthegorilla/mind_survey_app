@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   # dependencies for building Python packages
   build-essential \
   # psycopg dependencies
-  libpq-dev
+  libpq-dev \
+  git
 
 
 # Requirements are installed here to ensure they will be cached.
@@ -70,9 +71,9 @@ RUN sed -i 's/\r$//g' /start-celerybeat
 RUN chmod +x /start-celerybeat
 
 
-COPY --chown=django:django ./compose/production/django/celery/flower/start /start-flower
-RUN sed -i 's/\r$//g' /start-flower
-RUN chmod +x /start-flower
+# COPY --chown=django:django ./compose/production/django/celery/flower/start /start-flower
+# RUN sed -i 's/\r$//g' /start-flower
+# RUN chmod +x /start-flower
 
 # Copy the application from the builder
 COPY --from=python-build-stage --chown=django:django ${APP_HOME} ${APP_HOME}
