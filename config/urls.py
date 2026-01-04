@@ -6,6 +6,8 @@ from django.urls import include
 from django.urls import path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
+from allauth.account.views import LoginView
+
 
 urlpatterns = [
     path("", include("djf_surveys.urls"), name="home"),
@@ -19,6 +21,8 @@ urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
     path("users/", include("mind_survey_app.users.urls", namespace="users")),
+    path('login/', LoginView.as_view(), name="login"),
+    path('login/<str:slug>/', LoginView.as_view(), name="login"),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
     # ...

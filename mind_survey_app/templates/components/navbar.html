@@ -55,6 +55,9 @@
               <li class="">
                 <a class="" href="{% url 'djf_surveys:index' %}">{% translate "Surveys..." %}</a>
               </li>
+              <li class="">
+                <a class="" href="{% url 'djf_surveys:withdraw_response' %}">{% translate "Withdraw response" %}</a>
+              </li>
             {% endif %}
         </li>
       </ul>
@@ -73,6 +76,7 @@
               {% endif %}
             {% else %}
                 <a class="btn border-none shadow-none bg-blue-800 pr-4 text-white hover:bg-white hover:text-blue-800" href="{% url 'djf_surveys:index' %}">{% translate "Surveys..." %}</a>
+                <a class="btn border-none shadow-none bg-blue-800 pr-4 text-white hover:bg-white hover:text-blue-800" href="{% url 'djf_surveys:withdraw_response' %}">{% translate "Withdraw response" %}</a>
             {% endif %}
     </div>
     <div class="navbar-end">

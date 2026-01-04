@@ -159,3 +159,9 @@
   }
 }
 @layer utilities;
+
+.pass_change {
+   @media (width <= 27rem) {
+    margin-top: calc(var(--spacing) * 4);
+   }
+}
