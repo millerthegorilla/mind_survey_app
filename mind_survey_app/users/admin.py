@@ -18,9 +18,6 @@ if settings.DJANGO_ADMIN_FORCE_ALLAUTH:
 @admin.register(User)
 class UserAdmin(auth_admin.UserAdmin):
 
-   # def __init__(self, model, admin_site):
-        # breakpoint()
-
     form = UserAdminChangeForm
     add_form = UserAdminCreationForm
     fieldsets = (
