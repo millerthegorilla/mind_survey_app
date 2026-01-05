@@ -334,3 +334,10 @@ SURVEY_WELCOME_MESSAGE_TAGLINE = 'Surveys for Mind Jersey'
 SURVEY_MASTER_TEMPLATE = "pages/home.html"
 SURVEY_ADMIN_MASTER_TEMPLATE = "pages/home.html"
 SURVEY_LOGIN_URL = "login"
+SURVEY_GDPR_REFERENCE_MESSAGE = "This is a unique reference \
+                        for your survey response. \
+                        Should you feel the need to \
+                        withdraw your response in the \
+                        future please note this number \
+                        and enter it into the \
+                        following url: https://surveys.mindq.co.uk{}"
