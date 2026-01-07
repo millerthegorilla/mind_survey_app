@@ -40,6 +40,8 @@ class UserAdmin(auth_admin.UserAdmin):
     list_display = ["username", "name", "is_superuser"]
     search_fields = ["name"]
 
+
+#  Perhaps put first_name and last_name back to none in models if the below is added.
 #     change_list_template = "djf_surveys/admin/change_list.html"
 #     actions = ['user_printview']
     
