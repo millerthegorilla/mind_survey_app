@@ -187,4 +187,5 @@ dependencies = [
     "whitenoise==6.11.0",
     # djf_surveys
     "django-form-surveys @git+https://github.com/millerthegorilla/django-form-surveys@new_changes",
+    "Faker==40.1.0",
 ]
