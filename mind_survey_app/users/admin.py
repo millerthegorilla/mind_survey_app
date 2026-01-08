@@ -45,7 +45,6 @@ class LocalUserAdmin(UserAdmin):
     search_fields = ["name"]
     
     def add_10_random_users(self, request):
-        breakpoint()
         fake = Faker()
         ids = []
         for index in range(10):
