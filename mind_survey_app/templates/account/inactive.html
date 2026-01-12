@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Account Inactive{% endblock %}
+
+{% block content %}
+<div class="min-h-screen w-full flex justify-center bg-gray-100">
+  <div class="h-fit max-w-md w-full bg-white p-8 rounded-lg shadow-md mt-4 mx-2">
+    <h1 class="text-4xl font-bold text-center text-red-600">Account Inactive</h1>
+    <p class="font-bold text-2xl mt-4 text-center text-gray-700">Your account has been deactivated.</p><br></br> 
+    <p class="text-lg/2 leading-none text-center text-gray-700">
+      If you believe this is a mistake, please contact support for assistance.<br></br>
+      If you were using a temporary survey account, then you have already submitted your responses and your account has been deactivated.<br></br>
+      This is to protect your privacy and ensure that your data remains confidential, and because the survey was designed for one-time use only.
+    </p>
+    <div class="mt-6 text-center">
+      <a href="{% url 'login' %}" class="inline-block px-5 py-3 bg-blue-500 text-white rounded-lg font-medium hover:bg-blue-600">
+        Return to Login
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

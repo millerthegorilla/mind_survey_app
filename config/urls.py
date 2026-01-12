@@ -10,24 +10,26 @@ from allauth.account.views import LoginView
 
 
 urlpatterns = [
-    path("", include("djf_surveys.urls"), name="home"),
-    path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
     path(
         "about/",
         TemplateView.as_view(template_name="pages/about.html"),
         name="about",
     ),
+    #path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
     path("users/", include("mind_survey_app.users.urls", namespace="users")),
     path('login/', LoginView.as_view(), name="login"),
     path('login/<str:slug>/', LoginView.as_view(), name="login"),
+    path('accounts/inactive/', TemplateView.as_view(template_name="account/inactive.html"), name="account_inactive"),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
     # ...
     # Media files
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
+    path("", include("djf_surveys.urls"), name="djf_surveys"),
+    
 ]
 if settings.DEBUG:
     # Static file serving when using Gunicorn + Uvicorn for local web socket development
