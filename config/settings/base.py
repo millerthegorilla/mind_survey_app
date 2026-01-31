@@ -342,3 +342,5 @@ SURVEY_GDPR_REFERENCE_MESSAGE = "This is a unique reference \
                         and enter it into the \
                         following url: https://surveys.mindq.co.uk{}"
 SURVEY_REMOVE_TEMP_USER = True
+SURVEY_FORM_TIMEOUT = 15
+SURVEY_SCREENSAVER_TIMEOUT = 20
