@@ -506,7 +506,7 @@ wheels = [
 [[package]]
 name = "django-form-surveys"
 version = "2.5.0"
-source = { git = "https://github.com/millerthegorilla/django-form-surveys?rev=new_changes#60611d897860aa8969283efc8cc6683ab96ee6b5" }
+source = { git = "https://github.com/millerthegorilla/django-form-surveys?rev=new_changes#2edff7e614066fbca3a56090979e4376cf2b93c7" }
 dependencies = [
     { name = "django" },
     { name = "django-tinymce" },

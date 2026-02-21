@@ -26,7 +26,7 @@ DEBUG = env.bool("DJANGO_DEBUG", False)
 # In Windows, this must be set to your system time zone.
 TIME_ZONE = "Europe/Jersey"
 # https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "en-GB"
 # https://docs.djangoproject.com/en/dev/ref/settings/#languages
 # from django.utils.translation import gettext_lazy as _
 # LANGUAGES = [
@@ -343,5 +343,5 @@ SURVEY_GDPR_REFERENCE_MESSAGE = "This is a unique reference \
                         and enter it into the \
                         following url: https://surveys.mindq.co.uk{}"
 SURVEY_REMOVE_TEMP_USER = True
-SURVEY_FORM_TIMEOUT = 15
+SURVEY_FORM_TIMEOUT = 120
 SURVEY_SCREENSAVER_TIMEOUT = 20
