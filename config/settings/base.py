@@ -86,6 +86,7 @@ LOCAL_APPS = [
     "mind_survey_app.users",
     "djf_surveys",
     "tinymce",
+    "shortener",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

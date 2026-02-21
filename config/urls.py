@@ -29,7 +29,7 @@ urlpatterns = [
     # Media files
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
     path("", include("djf_surveys.urls"), name="djf_surveys"),
-    
+    path("s/", include("shortener.urls")),
 ]
 if settings.DEBUG:
     # Static file serving when using Gunicorn + Uvicorn for local web socket development
