@@ -16,6 +16,7 @@ networks:
 
 services:
   djangosurvey: &django
+    restart: always
     build:
       context: .
       dockerfile: ./compose/production/django/Dockerfile
@@ -34,6 +35,7 @@ services:
     command: /start
 
   postgres:
+    restart: always
     build:
       context: .
       dockerfile: ./compose/production/postgres/Dockerfile
@@ -48,6 +50,7 @@ services:
       - ./.envs/.production/.postgres
 
   redis:
+    restart: always
     image: docker.io/redis:7.2
     volumes:
       - production_redis_data:/data
@@ -76,6 +79,7 @@ services:
       survey_network:
 
   nginx:
+    restart: always
     build:
       context: .
       dockerfile: ./compose/production/nginx/Dockerfile
